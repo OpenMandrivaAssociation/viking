@@ -39,7 +39,21 @@ icon="more_applications_other_section.png" \
 needs="x11" \
 title="Viking" \
 longtitle="GPS data manager" \
-section="More Applications/Other"
+section="More Applications/Other" \
+xdg="true"
+EOF
+
+mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications
+cat > $RPM_BUILD_ROOT%{_datadir}/applications/mandriva-%{name}.desktop << EOF
+[Desktop Entry]
+Encoding=UTF-8
+Name=Viking
+Comment=GPS data manager
+Exec=%{name}
+Icon=more_applications_other_section.png
+Terminal=false
+Type=Application
+Categories=DataVisualization;Geography;X-MandrivaLinux-MoreApplications-Other;
 EOF
 
 %clean
@@ -56,4 +70,5 @@ rm -rf $RPM_BUILD_ROOT
 %doc README COPYING TODO doc/M*
 %{_bindir}/%name
 %{_bindir}/%name-remote
+%{_datadir}/applications/*
 %{_menudir}/%name
