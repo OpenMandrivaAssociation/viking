@@ -1,6 +1,6 @@
 %define name	viking
-%define version	0.1.0
-%define release 1mdk
+%define version	0.1.2
+%define release %mkrel 1
 
 Name: 	 	%{name}
 Summary: 	Global positioning system (GPS) data manager
@@ -21,18 +21,14 @@ lines, make new tracks and waypoints, hide different things, etc.
 
 %prep
 %setup -q
-perl -p -i -e "s|cc|gcc $RPM_OPT_FLAGS||g" Makefile
 
 %build
-make CCFLAGS="$RPM_OPT_FLAGS"
+%configure2_5x
+make
 										
 %install
 rm -rf $RPM_BUILD_ROOT
-mkdir -p $RPM_BUILD_ROOT/%_bindir
-cp src/%name $RPM_BUILD_ROOT/%_bindir/
-chmod 755 $RPM_BUILD_ROOT/%_bindir/%name
-cp %name-remote $RPM_BUILD_ROOT/%_bindir/
-chmod 755 $RPM_BUILD_ROOT/%_bindir/%name-remote
+%makeinstall
 
 #menu
 mkdir -p $RPM_BUILD_ROOT%{_menudir}
@@ -56,7 +52,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root)
-%doc README COPYING TODO HACKING doc/* *.vik
+%doc README COPYING TODO doc/M*
 %{_bindir}/%name
 %{_bindir}/%name-remote
 %{_menudir}/%name
