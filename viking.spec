@@ -13,6 +13,7 @@ License:	GPL
 Group:		Communications
 BuildRoot:	%{_tmppath}/%{name}-buildroot
 BuildRequires:	libgtk+2.0-devel
+BuildRequires:	expat-devel
 
 %description
 Viking is a free/open source program to manage GPS data. You can import and
