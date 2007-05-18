@@ -1,9 +1,9 @@
 %define name	viking
-%define version	0.1.2
+%define version	0.1.3
 %define release %mkrel 1
 
 Name: 	 	%{name}
-Summary: 	Global positioning system (GPS) data manager
+Summary: 	Global positioning system (GPS) and mapping manager
 Version: 	%{version}
 Release: 	%{release}
 
@@ -53,7 +53,7 @@ Exec=%{name}
 Icon=more_applications_other_section.png
 Terminal=false
 Type=Application
-Categories=DataVisualization;Geography;X-MandrivaLinux-MoreApplications-Other;
+Categories=GTK;DataVisualization;Geography;X-MandrivaLinux-MoreApplications-Other;
 EOF
 
 %clean
