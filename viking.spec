@@ -1,6 +1,6 @@
 %define name	viking
 %define version	0.1.3
-%define release %mkrel 1
+%define release %mkrel 2
 
 Name: 	 	%{name}
 Summary: 	Global positioning system (GPS) and mapping manager
@@ -14,6 +14,7 @@ Group:		Communications
 BuildRoot:	%{_tmppath}/%{name}-buildroot
 BuildRequires:	libgtk+2.0-devel
 BuildRequires:	expat-devel
+Requires:	gpsbabel
 
 %description
 Viking is a free/open source program to manage GPS data. You can import and
