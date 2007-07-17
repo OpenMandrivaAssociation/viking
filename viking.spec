@@ -1,6 +1,6 @@
 %define name	viking
-%define version	0.1.3
-%define release %mkrel 2
+%define version	0.9
+%define release %mkrel 1
 
 Name: 	 	%{name}
 Summary: 	Global positioning system (GPS) and mapping manager
@@ -14,6 +14,7 @@ Group:		Communications
 BuildRoot:	%{_tmppath}/%{name}-buildroot
 BuildRequires:	libgtk+2.0-devel
 BuildRequires:	expat-devel
+BuildRequires:	ImageMagick
 Requires:	gpsbabel
 
 %description
@@ -32,11 +33,11 @@ make
 rm -rf $RPM_BUILD_ROOT
 %makeinstall
 
-#menu
+# menu
 mkdir -p $RPM_BUILD_ROOT%{_menudir}
 cat << EOF > $RPM_BUILD_ROOT%{_menudir}/%{name}
 ?package(%{name}): command="%{name}" \
-icon="more_applications_other_section.png" \
+icon="%name.png" \
 needs="x11" \
 title="Viking" \
 longtitle="GPS data manager" \
@@ -51,11 +52,19 @@ Encoding=UTF-8
 Name=Viking
 Comment=GPS data manager
 Exec=%{name}
-Icon=more_applications_other_section.png
+Icon=%name.png
 Terminal=false
 Type=Application
 Categories=GTK;DataVisualization;Geography;X-MandrivaLinux-MoreApplications-Other;
 EOF
+
+# icons
+mkdir -p %buildroot/%{_miconsdir}
+convert -size 16x16 src/icons/viking_icon.png %buildroot/%{_miconsdir}/%name.png
+mkdir -p %buildroot/%{_iconsdir}
+convert -size 32x32 src/icons/viking_icon.png %buildroot/%{_iconsdir}/%name.png
+mkdir -p %buildroot/%{_liconsdir}
+convert -size 48x48 src/icons/viking_icon.png %buildroot/%{_liconsdir}/%name.png
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -73,3 +82,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_bindir}/%name-remote
 %{_datadir}/applications/*
 %{_menudir}/%name
+%{_miconsdir}/*.png
+%{_iconsdir}/*.png
+%{_liconsdir}/*.png
