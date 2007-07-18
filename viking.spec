@@ -13,7 +13,7 @@ License:	GPL
 Group:		Communications
 BuildRoot:	%{_tmppath}/%{name}-buildroot
 BuildRequires:	libgtk+2.0-devel
-BuildRequires:	expat-devel
+BuildRequires:	expat-devel curl-devel
 BuildRequires:	ImageMagick
 Requires:	gpsbabel
 
