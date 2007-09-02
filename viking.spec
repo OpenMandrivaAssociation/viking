@@ -1,5 +1,5 @@
 %define name	viking
-%define version	0.9
+%define version	0.9.1
 %define release %mkrel 1
 
 Name: 	 	%{name}
@@ -7,7 +7,7 @@ Summary: 	Global positioning system (GPS) and mapping manager
 Version: 	%{version}
 Release: 	%{release}
 
-Source:		http://prdownloads.sourceforge.net/viking/%{name}-%{version}.tar.bz2
+Source:		http://prdownloads.sourceforge.net/viking/%{name}-%{version}.tar.gz
 URL:		http://gpsmaps.org/viking/
 License:	GPL
 Group:		Communications
@@ -33,18 +33,6 @@ make
 rm -rf $RPM_BUILD_ROOT
 %makeinstall
 
-# menu
-mkdir -p $RPM_BUILD_ROOT%{_menudir}
-cat << EOF > $RPM_BUILD_ROOT%{_menudir}/%{name}
-?package(%{name}): command="%{name}" \
-icon="%name.png" \
-needs="x11" \
-title="Viking" \
-longtitle="GPS data manager" \
-section="More Applications/Other" \
-xdg="true"
-EOF
-
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications
 cat > $RPM_BUILD_ROOT%{_datadir}/applications/mandriva-%{name}.desktop << EOF
 [Desktop Entry]
@@ -54,7 +42,7 @@ Exec=%{name}
 Icon=%name.png
 Terminal=false
 Type=Application
-Categories=GTK;DataVisualization;Geography;X-MandrivaLinux-MoreApplications-Other;
+Categories=GTK;DataVisualization;Geography;Science;
 EOF
 
 # icons
@@ -80,7 +68,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_bindir}/%name
 %{_bindir}/%name-remote
 %{_datadir}/applications/*
-%{_menudir}/%name
 %{_miconsdir}/*.png
 %{_iconsdir}/*.png
 %{_liconsdir}/*.png
