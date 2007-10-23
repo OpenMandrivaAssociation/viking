@@ -15,6 +15,7 @@ BuildRoot:	%{_tmppath}/%{name}-buildroot
 BuildRequires:	libgtk+2.0-devel
 BuildRequires:	expat-devel curl-devel
 BuildRequires:	ImageMagick
+BuildRequires:	gpsd-devel
 Requires:	gpsbabel
 
 %description
@@ -39,7 +40,7 @@ cat > $RPM_BUILD_ROOT%{_datadir}/applications/mandriva-%{name}.desktop << EOF
 Name=Viking
 Comment=GPS data manager
 Exec=%{name}
-Icon=%name.png
+Icon=%name
 Terminal=false
 Type=Application
 Categories=GTK;DataVisualization;Geography;Science;
@@ -64,7 +65,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root)
-%doc README COPYING TODO doc/M*
+%doc README COPYING TODO
 %{_bindir}/%name
 %{_bindir}/%name-remote
 %{_datadir}/applications/*
