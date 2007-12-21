@@ -11,6 +11,7 @@ Source:		http://prdownloads.sourceforge.net/viking/%{name}-%{version}.tar.gz
 URL:		http://viking.sourceforge.net
 License:	GPLv2
 Group:		Communications
+BuildRoot:	%{_tmppath}/%{name}-buildroot
 BuildRequires:	libgtk+2.0-devel
 BuildRequires:	expat-devel curl-devel
 BuildRequires:	ImageMagick
