@@ -1,5 +1,5 @@
 %define name	viking
-%define version	0.9.3
+%define version	0.9.4
 %define release %mkrel 1
 
 Name: 	 	%{name}
@@ -33,6 +33,7 @@ make
 %install
 rm -rf $RPM_BUILD_ROOT
 %makeinstall
+%find_lang %name
 
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications
 cat > $RPM_BUILD_ROOT%{_datadir}/applications/mandriva-%{name}.desktop << EOF
@@ -63,7 +64,7 @@ rm -rf $RPM_BUILD_ROOT
 %postun
 %clean_menus
 
-%files
+%files -f %name.lang
 %defattr(-,root,root)
 %doc README COPYING TODO
 %{_bindir}/%name
