@@ -1,5 +1,5 @@
 %define name	viking
-%define version	0.9.4
+%define version	0.9.5
 %define release %mkrel 1
 
 Name: 	 	%{name}
@@ -9,7 +9,7 @@ Release: 	%{release}
 
 Source:		http://prdownloads.sourceforge.net/viking/%{name}-%{version}.tar.gz
 URL:		http://viking.sourceforge.net
-License:	GPLv2
+License:	GPLv2+
 Group:		Communications
 BuildRoot:	%{_tmppath}/%{name}-buildroot
 BuildRequires:	libgtk+2.0-devel
@@ -32,7 +32,7 @@ make
 										
 %install
 rm -rf $RPM_BUILD_ROOT
-%makeinstall
+%makeinstall_std
 %find_lang %name
 
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications
