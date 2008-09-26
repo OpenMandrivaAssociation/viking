@@ -1,6 +1,6 @@
 %define name	viking
-%define version	0.9.5
-%define release %mkrel 2
+%define version	0.9.6
+%define release %mkrel 1
 
 Name: 	 	%{name}
 Summary: 	Global positioning system (GPS) and mapping manager
