@@ -14,6 +14,7 @@ Group:		Communications
 BuildRoot:	%{_tmppath}/%{name}-buildroot
 BuildRequires:	libgtk+2.0-devel
 BuildRequires:	expat-devel curl-devel
+BuildRequires:	intltool
 BuildRequires:	ImageMagick
 BuildRequires:	gpsd-devel
 Requires:	gpsbabel
