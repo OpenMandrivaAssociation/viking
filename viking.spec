@@ -1,6 +1,6 @@
 %define name	viking
-%define version	0.9.6
-%define release %mkrel 2
+%define version	0.9.7
+%define release %mkrel 1
 
 Name: 	 	%{name}
 Summary: 	Global positioning system (GPS) and mapping manager
@@ -22,7 +22,7 @@ Requires:	gpsbabel
 %description
 Viking is a free/open source program to manage GPS data. You can import and
 plot tracks and waypoints, show Terraserver maps under it, add coordinate
-lines, make new tracks and waypoints, hide different things, etc. 
+lines, make new tracks and waypoints, hide different things, etc.
 
 %prep
 %setup -q
@@ -30,7 +30,7 @@ lines, make new tracks and waypoints, hide different things, etc.
 %build
 %configure2_5x
 make
-										
+
 %install
 rm -rf $RPM_BUILD_ROOT
 %makeinstall_std
@@ -43,7 +43,7 @@ rm -rf $RPM_BUILD_ROOT
 %post
 %update_menus
 %endif
-		
+
 %if %mdkversion < 200900
 %postun
 %clean_menus
@@ -55,4 +55,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_bindir}/%name
 %{_bindir}/%name-remote
 %{_datadir}/applications/*
-%{_iconsdir}/*.png
+%{_datadir}/icons/*
