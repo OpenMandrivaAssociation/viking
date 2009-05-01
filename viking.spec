@@ -1,5 +1,5 @@
 %define name	viking
-%define version	0.9.7
+%define version	0.9.8
 %define release %mkrel 1
 
 Name: 	 	%{name}
@@ -29,7 +29,7 @@ lines, make new tracks and waypoints, hide different things, etc.
 
 %build
 %configure2_5x
-make
+%make
 
 %install
 rm -rf $RPM_BUILD_ROOT
