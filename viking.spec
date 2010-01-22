@@ -1,6 +1,6 @@
 %define name	viking
 %define version	0.9.9
-%define release %mkrel 1
+%define release %mkrel 2
 
 Name: 	 	%{name}
 Summary: 	Global positioning system (GPS) and mapping manager
@@ -8,6 +8,7 @@ Version: 	%{version}
 Release: 	%{release}
 
 Source:		http://prdownloads.sourceforge.net/viking/%{name}-%{version}.tar.gz
+Patch0:		viking-0.9.9-gpsd.patch
 URL:		http://viking.sourceforge.net
 License:	GPLv2+
 Group:		Communications
@@ -26,6 +27,7 @@ lines, make new tracks and waypoints, hide different things, etc.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %configure2_5x
