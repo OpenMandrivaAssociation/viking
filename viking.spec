@@ -1,5 +1,5 @@
 %define name	viking
-%define version	0.9.93
+%define version	0.9.95
 %define release %mkrel 1
 
 Name: 	 	%{name}
@@ -7,16 +7,18 @@ Summary: 	Global positioning system (GPS) and mapping manager
 Version: 	%{version}
 Release: 	%{release}
 
-Source:		http://prdownloads.sourceforge.net/viking/%{name}-%{version}.tar.gz
+Source:		http://download.sourceforge.net/viking/%{name}-%{version}.tar.gz
 URL:		http://viking.sourceforge.net
 License:	GPLv2+
 Group:		Communications
 BuildRoot:	%{_tmppath}/%{name}-buildroot
 BuildRequires:	libgtk+2.0-devel
-BuildRequires:	expat-devel curl-devel
+BuildRequires:	expat-devel
+BuildRequires:	curl-devel
 BuildRequires:	intltool
 BuildRequires:	imagemagick
 BuildRequires:	gpsd-devel
+BuildRequires:	gnome-doc-utils >= 0.3.2
 Requires:	gpsbabel
 
 %description
@@ -26,7 +28,6 @@ lines, make new tracks and waypoints, hide different things, etc.
 
 %prep
 %setup -q
-#patch0 -p1
 
 %build
 %configure2_5x
@@ -35,7 +36,7 @@ lines, make new tracks and waypoints, hide different things, etc.
 %install
 rm -rf $RPM_BUILD_ROOT
 %makeinstall_std
-%find_lang %name
+%find_lang %name --with-gnome
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -57,3 +58,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_bindir}/%name-remote
 %{_datadir}/applications/*
 %{_datadir}/icons/*
+%{_datadir}/omf/%name/viking-C.omf
