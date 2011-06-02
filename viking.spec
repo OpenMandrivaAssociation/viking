@@ -1,5 +1,5 @@
 %define name	viking
-%define version	1.1
+%define version	1.2
 %define release %mkrel 1
 
 Name: 	 	%{name}
