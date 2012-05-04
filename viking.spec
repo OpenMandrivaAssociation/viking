@@ -45,4 +45,6 @@ lines, make new tracks and waypoints, hide different things, etc.
 #%{_bindir}/%name-remote
 %{_datadir}/applications/*
 %{_datadir}/icons/*
-#%{_datadir}/omf/%name/viking-C.omf
+%if %{mdvver} < 201200
+%{_datadir}/omf/%name/viking-C.omf
+%endif
