@@ -1,7 +1,7 @@
 Name:		viking
 Summary:	Global positioning system (GPS) and mapping manager
 Version:	1.3.2.1
-Release:	1
+Release:	2
 
 Source0:	http://download.sourceforge.net/viking/%{name}-%{version}.tar.gz
 URL:		http://viking.sourceforge.net
