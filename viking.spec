@@ -12,6 +12,7 @@ BuildRequires:	expat-devel
 BuildRequires:	curl-devel
 BuildRequires:	intltool
 BuildRequires:	imagemagick
+BuildRequires:	magic-devel
 BuildRequires:	gpsd-devel
 BuildRequires:	pkgconfig(gnome-doc-utils) >= 0.3.2
 BuildRequires:	pkgconfig(libexif)
