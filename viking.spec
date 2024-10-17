@@ -4,7 +4,7 @@ Version:	1.5.1
 Release:	1
 
 Source0:	http://download.sourceforge.net/viking/%{name}-%{version}.tar.bz2
-URL:		http://viking.sourceforge.net
+URL:		https://viking.sourceforge.net
 License:	GPLv2+
 Group:		Communications
 BuildRequires:	pkgconfig(gtk+-2.0)
