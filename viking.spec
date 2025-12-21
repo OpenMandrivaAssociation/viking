@@ -7,6 +7,11 @@ Source0:	http://download.sourceforge.net/viking/%{name}-%{version}.tar.bz2
 URL:		https://viking.sourceforge.net
 License:	GPLv2+
 Group:		Communications
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	pkgconfig(gtk+-2.0)
 BuildRequires:	expat-devel
 BuildRequires:	curl-devel
